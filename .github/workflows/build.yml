@@ -1,0 +1,24 @@
+name: SonarQube Analysis
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonarqube-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: SonarQube Scan
+        run: |
+          # Run the SonarQube analysis command here
+          # Example: ./sonar-scanner -Dsonar.login=YOUR_SONAR_LOGIN_TOKEN
